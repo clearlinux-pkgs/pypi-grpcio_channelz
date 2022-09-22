@@ -1,5 +1,5 @@
 PKG_NAME := pypi-grpcio_channelz
-URL = https://files.pythonhosted.org/packages/90/a6/f132d5f7fe8454011b21146d98880cba9b778694fe1543b9fa7acab4f5ca/grpcio-channelz-1.49.0.tar.gz
+URL = https://files.pythonhosted.org/packages/21/d0/6eded0048af813b692453164816861062711ff315b133a40de9ed60fc5eb/grpcio-channelz-1.49.1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
