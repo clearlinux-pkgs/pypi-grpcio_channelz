@@ -4,7 +4,7 @@
 #
 Name     : pypi-grpcio_channelz
 Version  : 1.51.1
-Release  : 36
+Release  : 37
 URL      : https://files.pythonhosted.org/packages/a3/9b/b6b3864d77e2238b51d67ba3aa46d5e1469ac4517a1e7cd4d03743e394a0/grpcio-channelz-1.51.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a3/9b/b6b3864d77e2238b51d67ba3aa46d5e1469ac4517a1e7cd4d03743e394a0/grpcio-channelz-1.51.1.tar.gz
 Summary  : Channel Level Live Debug Information Service for gRPC
@@ -16,6 +16,9 @@ Requires: pypi-grpcio_channelz-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 BuildRequires : pypi(grpcio)
 BuildRequires : pypi(protobuf)
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 gRPC Python Channelz package
@@ -63,15 +66,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1669820671
+export SOURCE_DATE_EPOCH=1672277630
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
