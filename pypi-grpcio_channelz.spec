@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-grpcio_channelz
-Version  : 1.54.0
-Release  : 41
-URL      : https://files.pythonhosted.org/packages/e5/af/21c32c38ad57441441e044f71c2b6c33159f7ab21bf0be702e68bc8248b8/grpcio-channelz-1.54.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/e5/af/21c32c38ad57441441e044f71c2b6c33159f7ab21bf0be702e68bc8248b8/grpcio-channelz-1.54.0.tar.gz
+Version  : 1.54.2
+Release  : 42
+URL      : https://files.pythonhosted.org/packages/e5/a6/92ced31cbeb175dc54b28046bc0c97c209e41ffc10982d77db772200cdf6/grpcio-channelz-1.54.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/e5/a6/92ced31cbeb175dc54b28046bc0c97c209e41ffc10982d77db772200cdf6/grpcio-channelz-1.54.2.tar.gz
 Summary  : Channel Level Live Debug Information Service for gRPC
 Group    : Development/Tools
 License  : Apache-2.0
@@ -15,8 +15,6 @@ Requires: pypi-grpcio_channelz-license = %{version}-%{release}
 Requires: pypi-grpcio_channelz-python = %{version}-%{release}
 Requires: pypi-grpcio_channelz-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : pypi(grpcio)
-BuildRequires : pypi(protobuf)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -56,10 +54,10 @@ python3 components for the pypi-grpcio_channelz package.
 
 
 %prep
-%setup -q -n grpcio-channelz-1.54.0
-cd %{_builddir}/grpcio-channelz-1.54.0
+%setup -q -n grpcio-channelz-1.54.2
+cd %{_builddir}/grpcio-channelz-1.54.2
 pushd ..
-cp -a grpcio-channelz-1.54.0 buildavx2
+cp -a grpcio-channelz-1.54.2 buildavx2
 popd
 
 %build
@@ -67,15 +65,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1681830917
+export SOURCE_DATE_EPOCH=1684608659
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
