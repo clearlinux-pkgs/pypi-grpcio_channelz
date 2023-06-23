@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-grpcio_channelz
-Version  : 1.55.0
-Release  : 43
-URL      : https://files.pythonhosted.org/packages/e3/ce/a2c0a2f4f64e1205acb0f3a4c6111a618a72c45e23d66e027c7d0bfbe507/grpcio-channelz-1.55.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/e3/ce/a2c0a2f4f64e1205acb0f3a4c6111a618a72c45e23d66e027c7d0bfbe507/grpcio-channelz-1.55.0.tar.gz
+Version  : 1.56.0
+Release  : 44
+URL      : https://files.pythonhosted.org/packages/a3/d9/9f0f233a62d55c89494596c25a50ead843f8c02361937ba855f29189b51c/grpcio-channelz-1.56.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/a3/d9/9f0f233a62d55c89494596c25a50ead843f8c02361937ba855f29189b51c/grpcio-channelz-1.56.0.tar.gz
 Summary  : Channel Level Live Debug Information Service for gRPC
 Group    : Development/Tools
 License  : Apache-2.0
@@ -15,6 +15,8 @@ Requires: pypi-grpcio_channelz-license = %{version}-%{release}
 Requires: pypi-grpcio_channelz-python = %{version}-%{release}
 Requires: pypi-grpcio_channelz-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
+BuildRequires : pypi(grpcio)
+BuildRequires : pypi(protobuf)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -54,10 +56,10 @@ python3 components for the pypi-grpcio_channelz package.
 
 
 %prep
-%setup -q -n grpcio-channelz-1.55.0
-cd %{_builddir}/grpcio-channelz-1.55.0
+%setup -q -n grpcio-channelz-1.56.0
+cd %{_builddir}/grpcio-channelz-1.56.0
 pushd ..
-cp -a grpcio-channelz-1.55.0 buildavx2
+cp -a grpcio-channelz-1.56.0 buildavx2
 popd
 
 %build
@@ -65,7 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684865228
+export SOURCE_DATE_EPOCH=1687532301
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
