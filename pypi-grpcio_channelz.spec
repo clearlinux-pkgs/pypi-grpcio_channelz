@@ -5,7 +5,7 @@
 #
 Name     : pypi-grpcio_channelz
 Version  : 1.59.0
-Release  : 48
+Release  : 49
 URL      : https://files.pythonhosted.org/packages/92/a5/3daff2883b79be1e5e4dd78935ffff074e44dd92938586e0cc82c287481e/grpcio-channelz-1.59.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/92/a5/3daff2883b79be1e5e4dd78935ffff074e44dd92938586e0cc82c287481e/grpcio-channelz-1.59.0.tar.gz
 Summary  : Channel Level Live Debug Information Service for gRPC
