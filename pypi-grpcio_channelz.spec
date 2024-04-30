@@ -7,7 +7,7 @@
 #
 Name     : pypi-grpcio_channelz
 Version  : 1.63.0
-Release  : 58
+Release  : 59
 URL      : https://files.pythonhosted.org/packages/16/ad/e2c30bb63d554f8ad6610b747627cad831d62b991ac8f86e66b124bd7024/grpcio_channelz-1.63.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/16/ad/e2c30bb63d554f8ad6610b747627cad831d62b991ac8f86e66b124bd7024/grpcio_channelz-1.63.0.tar.gz
 Summary  : Channel Level Live Debug Information Service for gRPC
@@ -69,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1714498024
+export SOURCE_DATE_EPOCH=1714499777
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -85,6 +85,7 @@ FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 export MAKEFLAGS=%{?_smp_mflags}
+pypi-dep-fix.py . pypi-grpcio_channelz
 python3 setup.py build
 
 pushd ../buildavx2/
@@ -93,6 +94,7 @@ CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -march=x86-64-v3 "
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS -march=x86-64-v3 "
+pypi-dep-fix.py . pypi-grpcio_channelz
 python3 setup.py build
 
 popd
@@ -116,6 +118,7 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-grpcio_channelz
 cp %{_builddir}/grpcio_channelz-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-grpcio_channelz/242ec6abfdd8c114f2e803b84934469c299348fc || :
 python3 -tt setup.py build  install --root=%{buildroot}
+pypi-dep-fix.py %{buildroot} pypi-grpcio_channelz
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
