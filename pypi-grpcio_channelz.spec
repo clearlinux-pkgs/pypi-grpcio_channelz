@@ -6,10 +6,10 @@
 # autospec commit: 5905be9
 #
 Name     : pypi-grpcio_channelz
-Version  : 1.62.2
-Release  : 57
-URL      : https://files.pythonhosted.org/packages/8c/07/f9ee50ba17e6935bd406cf2b93de01a7ce5c79d3f013cfe9569527979509/grpcio-channelz-1.62.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/8c/07/f9ee50ba17e6935bd406cf2b93de01a7ce5c79d3f013cfe9569527979509/grpcio-channelz-1.62.2.tar.gz
+Version  : 1.63.0
+Release  : 58
+URL      : https://files.pythonhosted.org/packages/16/ad/e2c30bb63d554f8ad6610b747627cad831d62b991ac8f86e66b124bd7024/grpcio_channelz-1.63.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/16/ad/e2c30bb63d554f8ad6610b747627cad831d62b991ac8f86e66b124bd7024/grpcio_channelz-1.63.0.tar.gz
 Summary  : Channel Level Live Debug Information Service for gRPC
 Group    : Development/Tools
 License  : Apache-2.0
@@ -58,10 +58,10 @@ python3 components for the pypi-grpcio_channelz package.
 
 
 %prep
-%setup -q -n grpcio-channelz-1.62.2
-cd %{_builddir}/grpcio-channelz-1.62.2
+%setup -q -n grpcio_channelz-1.63.0
+cd %{_builddir}/grpcio_channelz-1.63.0
 pushd ..
-cp -a grpcio-channelz-1.62.2 buildavx2
+cp -a grpcio_channelz-1.63.0 buildavx2
 popd
 
 %build
@@ -69,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1713536627
+export SOURCE_DATE_EPOCH=1714498024
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -114,7 +114,7 @@ LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-grpcio_channelz
-cp %{_builddir}/grpcio-channelz-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-grpcio_channelz/242ec6abfdd8c114f2e803b84934469c299348fc || :
+cp %{_builddir}/grpcio_channelz-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-grpcio_channelz/242ec6abfdd8c114f2e803b84934469c299348fc || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
