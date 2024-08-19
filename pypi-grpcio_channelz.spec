@@ -6,10 +6,10 @@
 # autospec commit: f35655a
 #
 Name     : pypi-grpcio_channelz
-Version  : 1.65.4
-Release  : 65
-URL      : https://files.pythonhosted.org/packages/e2/a9/1c87538a2899fb9ae7ff30b43e78d80a6f22d893ef4ac69de8b9886a461c/grpcio_channelz-1.65.4.tar.gz
-Source0  : https://files.pythonhosted.org/packages/e2/a9/1c87538a2899fb9ae7ff30b43e78d80a6f22d893ef4ac69de8b9886a461c/grpcio_channelz-1.65.4.tar.gz
+Version  : 1.65.5
+Release  : 66
+URL      : https://files.pythonhosted.org/packages/3f/33/b28ecf0f0a076ef83ee04b96ec36e4ed4d5773793c36fb23afcf6ab879b9/grpcio_channelz-1.65.5.tar.gz
+Source0  : https://files.pythonhosted.org/packages/3f/33/b28ecf0f0a076ef83ee04b96ec36e4ed4d5773793c36fb23afcf6ab879b9/grpcio_channelz-1.65.5.tar.gz
 Summary  : Channel Level Live Debug Information Service for gRPC
 Group    : Development/Tools
 License  : Apache-2.0
@@ -58,10 +58,10 @@ python3 components for the pypi-grpcio_channelz package.
 
 
 %prep
-%setup -q -n grpcio_channelz-1.65.4
-cd %{_builddir}/grpcio_channelz-1.65.4
+%setup -q -n grpcio_channelz-1.65.5
+cd %{_builddir}/grpcio_channelz-1.65.5
 pushd ..
-cp -a grpcio_channelz-1.65.4 buildavx2
+cp -a grpcio_channelz-1.65.5 buildavx2
 popd
 
 %build
@@ -69,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1722639128
+export SOURCE_DATE_EPOCH=1724082209
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
